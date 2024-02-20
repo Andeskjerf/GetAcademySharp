@@ -8,10 +8,10 @@ while (!string.IsNullOrWhiteSpace(text))
 		// Hent input fra bruker
     text = Console.ReadLine();
 		// Gå over hver karakter i input
-    foreach (var character in text ?? string.Empty)
+    foreach (char character in text ?? string.Empty)
     {
 				// For hver karakter vi møter på, lagre hvor ofte vi har sett den i arrayet
-        counts[(int)character]++;
+        counts[(int)Char.ToUpper(character)]++;
     }
 		// Istedenfor å hente counts.Length, så bruker vi range for å loope over counts arrayet
     for (var i = 0; i < range; i++)
