@@ -13,24 +13,20 @@ while (!string.IsNullOrWhiteSpace(text))
         // For hver karakter vi møter på, lagre hvor ofte vi har sett den i arrayet
         counts[(int)Char.ToUpper(character)]++;
     }
-    int[] percentages = new int[range];
-    int count = 0;
+
+    Dictionary<char, double> percentages = new Dictionary<char, double>();
     for (var i = 0; i < range; i++)
     {
         if (counts[i] > 0)
         {
-            percentages[i] = counts[i];
-            count += counts[i];
+            percentages.Add((char)i, ((double)counts[i] / (double)text.Length) * 100.0);
         }
     }
 
-    for (int i = 0; i < range; i++)
+    percentages = percentages.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+
+    foreach (KeyValuePair<char, double> kvp in percentages)
     {
-        if (percentages[i] > 0)
-        {
-            double percentage = ((double)percentages[i] / (double)count) * 100.0;
-            char character = (char)i;
-            Console.WriteLine(character + " - " + Math.Round(percentage));
-        }
+        Console.WriteLine(kvp.Key + " - " + Math.Round(kvp.Value));
     }
 }
