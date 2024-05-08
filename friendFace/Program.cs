@@ -116,21 +116,28 @@
             while (true)
             {
                 printOptions();
-                int option = Convert.ToInt32(Console.ReadLine());
-                switch (option)
+                try
                 {
-                    case 1:
-                        addFriend();
-                        break;
-                    case 2:
-                        showFriends();
-                        break;
-                    case 3:
-                        removeFriend();
-                        break;
-                    case 4:
-                        Environment.Exit(0);
-                        break;
+                    int option = Convert.ToInt32(Console.ReadLine());
+                    switch (option)
+                    {
+                        case 1:
+                            addFriend();
+                            break;
+                        case 2:
+                            showFriends();
+                            break;
+                        case 3:
+                            removeFriend();
+                            break;
+                        case 4:
+                            Environment.Exit(0);
+                            break;
+                    }
+                }
+                catch (FormatException _)
+                {
+                    Console.WriteLine("Invalid input, needs to be number");
                 }
             }
         }
