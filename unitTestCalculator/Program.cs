@@ -6,8 +6,8 @@
         {
             Calculator calc = new Calculator();
 						calc.ParseInput("10+10");
-            // Console.WriteLine("Input: ");
-            // string input = Console.ReadLine();
+            Console.WriteLine("Input: ");
+            string input = Console.ReadLine();
         }
     }
 
